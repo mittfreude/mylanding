@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal-style 3D Mockup Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            perspective: 1200px;
+            perspective-origin: center center;
+        }
+
+        .mockup-window {
+            width: 800px;
+            height: 500px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            transform: 
+                rotateX(15deg) 
+                rotateY(-5deg) 
+                translateZ(0);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mockup-window:hover {
+            transform: 
+                rotateX(10deg) 
+                rotateY(-2deg) 
+                translateZ(20px);
+        }
+
+        .window-header {
+            height: 40px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .control-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .close { background: #ff5f57; }
+        .minimize { background: #ffbd2e; }
+        .maximize { background: #28ca42; }
+
+        .window-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .window-content {
+            height: calc(100% - 40px);
+            background: #fafafa;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .content-header {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content-description {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            transform: translateZ(10px);
+        }
+
+        .cta-button:hover {
+            transform: translateZ(15px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Additional 3D elements */
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            transform: translateZ(30px);
+            opacity: 0.8;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateZ(30px) translateY(0px); }
+            50% { transform: translateZ(40px) translateY(-10px); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .mockup-window {
+                width: 90vw;
+                height: 400px;
+                transform: rotateX(10deg) rotateY(-3deg);
+            }
+            
+            .content-header {
+                font-size: 24px;
+            }
+            
+            .content-description {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mockup-window">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            
+            <div class="window-header">
+                <div class="window-controls">
+                    <div class="control-btn close"></div>
+                    <div class="control-btn minimize"></div>
+                    <div class="control-btn maximize"></div>
+                </div>
+                <div class="window-title">Your Beautiful Toolkit</div>
+            </div>
+            
+            <div class="window-content">
+                <h1 class="content-header">Portal-Style 3D Effect</h1>
+                <p class="content-description">
+                    This mockup window recreates the beautiful 3D perspective effect 
+                    from Portal's website, featuring smooth transforms, hover interactions, 
+                    and floating elements that create depth and visual interest.
+                </p>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

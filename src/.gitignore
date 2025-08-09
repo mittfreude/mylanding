@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+.pnpm-store/
+.pnp.*
+# build output
+dist/
+build/
+.vite/
+storybook-static/
+# env & secrets
+.env
+.env.*
+!.env.example
+# vercel
+.vercel/
+# logs & misc
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+.DS_Store
+coverage/

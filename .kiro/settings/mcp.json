@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "firecrawl": {
+      "command": "py",
+      "args": [
+        "-m",
+        "uv",
+        "tool",
+        "run",
+        "firecrawl-mcp-server"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-a5ec592ae53345a993b18e26acdcc7c1"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
